@@ -3,6 +3,26 @@ fetch('members.json')
   .then(data => {
     const memberList = document.getElementById('memberList');
     const searchInput = document.getElementById('searchInput');
+    const regionFilter = document.getElementById('regionFilter');
+    const pathogenFilter = document.getElementById('pathogenFilter');
+    const settingFilter = document.getElementById('settingFilter');
+    const sortBy = document.getElementById('sortBy');
+
+    const allRegions = [...new Set(data.map(m => m.region))];
+    const allPathogens = [...new Set(data.map(m => m.pathogen))];
+    const allSettings = [...new Set(data.map(m => m.setting))];
+
+    // Populate filter dropdowns
+    allRegions.forEach(region => {
+      regionFilter.innerHTML += `<option value="${region}">${region}</option>`;
+    });
+    allPathogens.forEach(pathogen => {
+      pathogenFilter.innerHTML += `<option value="${pathogen}">${pathogen}</option>`;
+    });
+    allSettings.forEach(setting => {
+      settingFilter.innerHTML += `<option value="${setting}">${setting}</option>`;
+    });
+  
 
     function displayMembers(members) {
       memberList.innerHTML = '';
@@ -22,17 +42,40 @@ fetch('members.json')
       });
     }
 
-    displayMembers(data);
-
-    searchInput.addEventListener('input', () => {
+    
+    function filterAndSortMembers() {
       const query = searchInput.value.toLowerCase();
-      const filtered = data.filter(member =>
-        member.name.toLowerCase().includes(query) ||
-        member.region.toLowerCase().includes(query) ||
-        member.pathogen.toLowerCase().includes(query) ||
-        member.setting.toLowerCase().includes(query) ||
-        member.expertise.toLowerCase().includes(query)
+      const region = regionFilter.value;
+      const pathogen = pathogenFilter.value;
+      const setting = settingFilter.value;
+      const sort = sortBy.value;
+
+      let filtered = data.filter(member =>
+        (member.name.toLowerCase().includes(query) ||
+         member.region.toLowerCase().includes(query) ||
+         member.pathogen.toLowerCase().includes(query) ||
+         member.setting.toLowerCase().includes(query) ||
+         member.expertise.toLowerCase().includes(query)) &&
+        (region === '' || member.region === region) &&
+        (pathogen === '' || member.pathogen === pathogen) &&
+        (setting === '' || member.setting === setting)
       );
-      displayMembers(filtered);
+
+        filtered.sort((a, b) => a[sort].localeCompare(b[sort]));
+  
+        displayMembers(filtered);
+      }
+  
+      // Attach event listeners outside the filterAndSortMembers function
+      searchInput.addEventListener('input', filterAndSortMembers);
+      regionFilter.addEventListener('change', filterAndSortMembers);
+      pathogenFilter.addEventListener('change', filterAndSortMembers);
+      settingFilter.addEventListener('change', filterAndSortMembers);
+      sortBy.addEventListener('change', filterAndSortMembers);
+  
+      // Initial display
+      filterAndSortMembers();
+      displayMembers(data);
+
     });
-  });
+  
