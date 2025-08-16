@@ -1,12 +1,12 @@
 [
   
-  {"name": "Dr. Jane Aka",
+  {"name": "Dr. Joy Aka",
     "region": "East Asia",
     "pathogen": "Influenza",
     "setting": "Urban Hospitals",
     "expertise": "Virology, Public Health",
-    "email": "kenji.tanaka@example.com",
-    "photo": "images/kenji.jpg"
+    "email": "joy.aka@example.com",
+    "photo": "images/joy.jpg"
 },
 
   {
@@ -16,7 +16,7 @@
     "setting": "Urban Hospitals",
     "expertise": "Virology, Public Health",
     "email": "kenji.tanaka@example.com",
-    "photo": "images/amina.jpg"
+    "photo": "images/kenji.png"
   },
 
   {
@@ -25,8 +25,8 @@
     "pathogen": "Malaria",
     "setting": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
-    "email": "amina.yusuf@example.com",
-    "photo": "images/amina.jpg"
+    "email": "ade.yusuf@example.com",
+    "photo": "images/ade.jpg"
   },
 
    {
@@ -35,8 +35,8 @@
     "pathogen": "Malaria",
     "setting": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
-    "email": "amina.yusuf@example.com",
-    "photo": "images/amina.jpg"
+    "email": "zuba.yusuf@example.com",
+    "photo": "images/zuba.jpg"
   },
 
    {
@@ -45,8 +45,8 @@
     "pathogen": "Malaria",
     "setting": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
-    "email": "amina.yusuf@example.com",
-    "photo": "images/amina.jpg"
+    "email": "sean.yusuf@example.com",
+    "photo": "images/sean.png"
   },
 
    {
@@ -55,7 +55,7 @@
     "pathogen": "Malaria",
     "setting": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
-    "email": "amina.yusuf@example.com",
-    "photo": "images/amina.jpg"
+    "email": "dan.ade@example.com",
+    "photo": "images/dan.jpg"
   }
 ]
