@@ -2,7 +2,7 @@ title: Member Directory
 description: A GitHub Pages-powered member directory
 baseurl: ""
 url: ""
-theme: minima
+theme: jekyll-theme-cayman
 
 collections:
   members:
