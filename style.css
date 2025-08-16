@@ -181,3 +181,23 @@ select {
   text-align: center;
 }
 
+footer {
+  background-color: #054a87;                 
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+footer p:first-child {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+footer p:last-child {
+  color: #d19d1d;
+}
+
+footer a:hover {
+  text-decoration: underline;  
+}
