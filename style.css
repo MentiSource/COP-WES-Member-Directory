@@ -29,37 +29,41 @@ main {
 }
 
 .member-card {
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start; /* align text to the left */
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  display: flex;              
+  align-items: flex-start;    
+  width: 500px;               
   padding: 15px;
   margin: 10px;
-  width: 280px; /* adjust width */
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: transform 0.2s ease;
 }
 
 .member-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  object-fit: cover;
-  margin-bottom: 12px; 
+  width: 120px;        
+  height: 120px;
+  object-fit: cover;   
+  border-radius: 8px;
+  margin-right: 15px; 
 }
 
 .member-info {
   display: flex;
   flex-direction: column;
-  gap: 6px;  
-  text-align: left;
+
 }
 
 .member-card h2 {
   margin-top: 0;
   color: #007acc;
 }
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
 
 footer {
   text-align: center;
@@ -145,5 +149,25 @@ select {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+/* Header container with flexbox */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; 
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 0;
+  height: 60px; 
+}
+
+.header-text {
+  text-align: center;
 }
 
