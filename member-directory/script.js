@@ -22,7 +22,6 @@ fetch('members.json')
     allSettings.forEach(setting => {
       settingFilter.innerHTML += `<option value="${setting}">${setting}</option>`;
     });
-  
 
     function displayMembers(members) {
       memberList.innerHTML = '';
@@ -42,7 +41,6 @@ fetch('members.json')
       });
     }
 
-    
     function filterAndSortMembers() {
       const query = searchInput.value.toLowerCase();
       const region = regionFilter.value;
@@ -61,21 +59,18 @@ fetch('members.json')
         (setting === '' || member.setting === setting)
       );
 
-        filtered.sort((a, b) => a[sort].localeCompare(b[sort]));
-  
-        displayMembers(filtered);
-      }
-  
-      // Attach event listeners outside the filterAndSortMembers function
-      searchInput.addEventListener('input', filterAndSortMembers);
-      regionFilter.addEventListener('change', filterAndSortMembers);
-      pathogenFilter.addEventListener('change', filterAndSortMembers);
-      settingFilter.addEventListener('change', filterAndSortMembers);
-      sortBy.addEventListener('change', filterAndSortMembers);
-  
-      // Initial display
-      filterAndSortMembers();
-      displayMembers(data);
+      filtered.sort((a, b) => a[sort].localeCompare(b[sort]));
+      displayMembers(filtered);
+    }
 
-    });
+    searchInput.addEventListener('input', filterAndSortMembers);
+    regionFilter.addEventListener('change', filterAndSortMembers);
+    pathogenFilter.addEventListener('change', filterAndSortMembers);
+    settingFilter.addEventListener('change', filterAndSortMembers);
+    sortBy.addEventListener('change', filterAndSortMembers);
+
+    // Initial display
+    filterAndSortMembers();
+  });
+
   

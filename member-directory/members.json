@@ -1,6 +1,5 @@
 [
   {
-
     "name": "Dr. Amina Yusuf",
     "region": "West Africa",
     "pathogen": "Malaria",
@@ -8,7 +7,6 @@
     "expertise": "Epidemiology, Field Research",
     "email": "amina.yusuf@example.com",
     "photo": "images/amina.jpg"
-    
   },
   {
     "name": "Prof. Kenji Tanaka",
