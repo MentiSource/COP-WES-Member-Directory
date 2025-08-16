@@ -22,7 +22,11 @@
   </header>
 
   <div class="controls">
-    <button onclick="window.location.href='index.html'" class="home-btn">Home</button>
+    <!-- <button onclick="window.location.href='index.html'" class="home-btn">Home</button> -->
+    <select id="homeFilter" onchange="goHome(this)">
+    <option value="">Menu</option>
+    <option value="home">Home</option>
+  </select>
     <select id="regionFilter">
       <option value="">All Regions</option>
     </select>
@@ -37,6 +41,15 @@
       <option value="region">Sort by Region</option>
     </select>
   </div>
+
+  <script>
+  function goHome(select) {
+    if (select.value === "home") {
+      window.location.href = "index.html"; 
+    }
+  }
+</script>
+
 
   <!-- only one memberList -->
   <main id="memberList"></main>
