@@ -1,13 +1,16 @@
 [
-  {
-    "name": "Dr. Amina Yusuf",
-    "region": "West Africa",
-    "pathogen": "Malaria",
-    "setting": "Rural Clinics",
-    "expertise": "Epidemiology, Field Research",
-    "email": "amina.yusuf@example.com",
-    "photo": "images/amina.jpg"
-  },
+  { "name": "Alice Johnson",
+   "role": "Developer", 
+   "email": "alice@example.com" },
+
+  { "name": "Bob Smith", 
+  "role": "Designer", 
+  "email": "bob@example.com" },
+
+  { "name": "Cynthia Lee", 
+  "role": "Project Manager",
+   "email": "cynthia@example.com" },
+
   {
     "name": "Prof. Kenji Tanaka",
     "region": "East Asia",
@@ -27,4 +30,6 @@
     "email": "amina.yusuf@example.com",
     "photo": "images/amina.jpg"
   }
+
+  
 ]
