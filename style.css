@@ -29,12 +29,18 @@ main {
 }
 
 .member-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin: 10px;
-  padding: 15px;
-  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  transition: transform 0.2s;
+
 }
 
 .member-card h2 {
@@ -48,11 +54,12 @@ footer {
   background: #eee;
 }
 
-.member-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
+.member-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
 }
 
 .controls {
@@ -95,9 +102,17 @@ select {
 #suggestions li:hover {
   background: #ddd;
 }
-
+/* Container styling */
 #memberList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* space between cards */
+  margin-top: 20px;
 }
+
+/* Hover effect for nicer UI */
+.member-card:hover {
+  transform: translateY(-5px);
+}
+

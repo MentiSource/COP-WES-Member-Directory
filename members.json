@@ -1,15 +1,13 @@
 [
-  { "name": "Alice Johnson",
-   "role": "Developer", 
-   "email": "alice@example.com" },
-
-  { "name": "Bob Smith", 
-  "role": "Designer", 
-  "email": "bob@example.com" },
-
-  { "name": "Cynthia Lee", 
-  "role": "Project Manager",
-   "email": "cynthia@example.com" },
+  
+  {"name": "Dr. Jane Aka",
+    "region": "East Asia",
+    "pathogen": "Influenza",
+    "setting": "Urban Hospitals",
+    "expertise": "Virology, Public Health",
+    "email": "kenji.tanaka@example.com",
+    "photo": "images/kenji.jpg"
+},
 
   {
     "name": "Prof. Kenji Tanaka",
@@ -29,7 +27,35 @@
     "expertise": "Epidemiology, Field Research",
     "email": "amina.yusuf@example.com",
     "photo": "images/amina.jpg"
-  }
+  },
 
-  
+   {
+    "name": "Zuba YusFranchuf",
+    "region": "West Africa",
+    "pathogen": "Malaria",
+    "setting": "Rural Clinics",
+    "expertise": "Epidemiology, Field Research",
+    "email": "amina.yusuf@example.com",
+    "photo": "images/amina.jpg"
+  },
+
+   {
+    "name": "Dr. Sean Ywell",
+    "region": "West Africa",
+    "pathogen": "Malaria",
+    "setting": "Rural Clinics",
+    "expertise": "Epidemiology, Field Research",
+    "email": "amina.yusuf@example.com",
+    "photo": "images/amina.jpg"
+  },
+
+   {
+    "name": "Ade Dan",
+    "region": "West Africa",
+    "pathogen": "Malaria",
+    "setting": "Rural Clinics",
+    "expertise": "Epidemiology, Field Research",
+    "email": "amina.yusuf@example.com",
+    "photo": "images/amina.jpg"
+  }
 ]

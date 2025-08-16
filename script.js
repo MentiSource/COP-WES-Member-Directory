@@ -1,71 +1,71 @@
 let members = [];
 
-async function loadMembers() {
-  try {
-    const response = await fetch("members.json"); // ensure members.json is in the same folder as index.html
-    members = await response.json();
-    displayMembers(members); // show all members on page load
-  } catch (error) {
-    console.error("Error loading members.json:", error);
-  }
-}
+// Fetch members from JSON
+fetch("members.json")
+  .then(response => response.json())
+  .then(data => {
+    members = data;
+    displayMembers(members);
+  })
+  .catch(err => console.error("Error loading members.json:", err));
 
+// Search bar + suggestions
 const searchBar = document.getElementById("searchBar");
-const memberList = document.getElementById("memberList");
 const suggestions = document.getElementById("suggestions");
 
-// Display members
-function displayMembers(memberArray) {
-  memberList.innerHTML = "";
-  if (memberArray.length === 0) {
-    memberList.innerHTML = "<p>No members found.</p>";
-    return;
-  }
-
-  memberArray.forEach(member => {
-    const card = document.createElement("div");
-    card.classList.add("member-card");
-    card.innerHTML = `
-      <h3>${member.name}</h3>
-      <p><strong>Role:</strong> ${member.role}</p>
-      <p><strong>Email:</strong> ${member.email}</p>
-    `;
-    memberList.appendChild(card);
-  });
-}
-
-// Handle search input
 searchBar.addEventListener("input", function () {
-  const query = this.value.toLowerCase().trim();
-
-  // Filter members
-  const filtered = members.filter(m =>
-    m.name.toLowerCase().includes(query) ||
-    m.role.toLowerCase().includes(query) ||
-    m.email.toLowerCase().includes(query)
+  const query = this.value.toLowerCase();
+  const filtered = members.filter(member =>
+    member.name.toLowerCase().includes(query) ||
+    member.region.toLowerCase().includes(query) ||
+    member.pathogen.toLowerCase().includes(query) ||
+    member.setting.toLowerCase().includes(query) ||
+    member.expertise.toLowerCase().includes(query)
   );
 
-  displayMembers(filtered);
-
-  // Show suggestions
+  // Update suggestions
   suggestions.innerHTML = "";
   if (query.length > 0) {
-    const suggestedNames = members
-      .filter(m => m.name.toLowerCase().startsWith(query))
-      .map(m => m.name);
-
-    suggestedNames.forEach(name => {
+    filtered.forEach(m => {
       const li = document.createElement("li");
-      li.textContent = name;
+      li.textContent = m.name;
       li.addEventListener("click", () => {
-        searchBar.value = name;
-        displayMembers(members.filter(m => m.name === name));
+        searchBar.value = m.name;
         suggestions.innerHTML = "";
+        displayMembers([m]);
       });
       suggestions.appendChild(li);
     });
   }
+
+  // Update displayed members
+  displayMembers(filtered);
 });
 
-// Initialize
-loadMembers();
+// Function to display members in cards
+function displayMembers(list) {
+  const container = document.getElementById("memberList");
+  container.innerHTML = "";
+
+  if (list.length === 0) {
+    container.innerHTML = "<p>No members found.</p>";
+    return;
+  }
+
+  list.forEach(member => {
+    const card = document.createElement("div");
+    card.classList.add("member-card");
+
+    card.innerHTML = `
+      <img src="${member.photo}" alt="${member.name}" class="member-photo">
+      <h2>${member.name}</h2>
+      <p><strong>Region:</strong> ${member.region}</p>
+      <p><strong>Pathogen:</strong> ${member.pathogen}</p>
+      <p><strong>Setting:</strong> ${member.setting}</p>
+      <p><strong>Expertise:</strong> ${member.expertise}</p>
+      <p><a href="mailto:${member.email}">${member.email}</a></p>
+    `;
+
+    container.appendChild(card);
+  });
+}
