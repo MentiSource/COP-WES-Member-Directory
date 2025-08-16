@@ -1,20 +1,20 @@
 let members = [];
 
-let members = [];
-
-// Load members.json
-fetch("members.json")
-  .then(response => response.json())
-  .then(data => {
-    members = data;
-    displayMembers(members); // show all members at first
-  });
+async function loadMembers() {
+  try {
+    const response = await fetch("members.json"); // ensure members.json is in the same folder as index.html
+    members = await response.json();
+    displayMembers(members); // show all members on page load
+  } catch (error) {
+    console.error("Error loading members.json:", error);
+  }
+}
 
 const searchBar = document.getElementById("searchBar");
 const memberList = document.getElementById("memberList");
 const suggestions = document.getElementById("suggestions");
 
-// Display members in cards
+// Display members
 function displayMembers(memberArray) {
   memberList.innerHTML = "";
   if (memberArray.length === 0) {
@@ -34,9 +34,9 @@ function displayMembers(memberArray) {
   });
 }
 
-// Search + suggestions
+// Handle search input
 searchBar.addEventListener("input", function () {
-  const query = this.value.toLowerCase();
+  const query = this.value.toLowerCase().trim();
 
   // Filter members
   const filtered = members.filter(m =>
@@ -47,7 +47,7 @@ searchBar.addEventListener("input", function () {
 
   displayMembers(filtered);
 
-  // Update suggestions
+  // Show suggestions
   suggestions.innerHTML = "";
   if (query.length > 0) {
     const suggestedNames = members
@@ -67,79 +67,5 @@ searchBar.addEventListener("input", function () {
   }
 });
 
-// fetch('members.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     const memberList = document.getElementById('memberList');
-//     const searchInput = document.getElementById('searchInput');
-//     const regionFilter = document.getElementById('regionFilter');
-//     const pathogenFilter = document.getElementById('pathogenFilter');
-//     const settingFilter = document.getElementById('settingFilter');
-//     const sortBy = document.getElementById('sortBy');
-
-//     const allRegions = [...new Set(data.map(m => m.region))];
-//     const allPathogens = [...new Set(data.map(m => m.pathogen))];
-//     const allSettings = [...new Set(data.map(m => m.setting))];
-
-//     // Populate filter dropdowns
-//     allRegions.forEach(region => {
-//       regionFilter.innerHTML += `<option value="${region}">${region}</option>`;
-//     });
-//     allPathogens.forEach(pathogen => {
-//       pathogenFilter.innerHTML += `<option value="${pathogen}">${pathogen}</option>`;
-//     });
-//     allSettings.forEach(setting => {
-//       settingFilter.innerHTML += `<option value="${setting}">${setting}</option>`;
-//     });
-
-//     function displayMembers(members) {
-//       memberList.innerHTML = '';
-//       members.forEach(member => {
-//         const card = document.createElement('div');
-//         card.className = 'member-card';
-//         card.innerHTML = `
-//           <img src="${member.photo || 'images/default.jpg'}" alt="${member.name}" />
-//           <h2>${member.name}</h2>
-//           <p><strong>Region:</strong> ${member.region}</p>
-//           <p><strong>Pathogen Focus:</strong> ${member.pathogen}</p>
-//           <p><strong>Setting:</strong> ${member.setting}</p>
-//           <p><strong>Expertise:</strong> ${member.expertise}</p>
-//           <p><strong>Email:</strong> <a href="mailto:${member.email}">${member.email}</a></p>
-//         `;
-//         memberList.appendChild(card);
-//       });
-//     }
-
-//     function filterAndSortMembers() {
-//       const query = searchInput.value.toLowerCase();
-//       const region = regionFilter.value;
-//       const pathogen = pathogenFilter.value;
-//       const setting = settingFilter.value;
-//       const sort = sortBy.value;
-
-//       let filtered = data.filter(member =>
-//         (member.name.toLowerCase().includes(query) ||
-//          member.region.toLowerCase().includes(query) ||
-//          member.pathogen.toLowerCase().includes(query) ||
-//          member.setting.toLowerCase().includes(query) ||
-//          member.expertise.toLowerCase().includes(query)) &&
-//         (region === '' || member.region === region) &&
-//         (pathogen === '' || member.pathogen === pathogen) &&
-//         (setting === '' || member.setting === setting)
-//       );
-
-//       filtered.sort((a, b) => a[sort].localeCompare(b[sort]));
-//       displayMembers(filtered);
-//     }
-
-//     searchInput.addEventListener('input', filterAndSortMembers);
-//     regionFilter.addEventListener('change', filterAndSortMembers);
-//     pathogenFilter.addEventListener('change', filterAndSortMembers);
-//     settingFilter.addEventListener('change', filterAndSortMembers);
-//     sortBy.addEventListener('change', filterAndSortMembers);
-
-//     // Initial display
-//     filterAndSortMembers();
-//   });
-
-  
+// Initialize
+loadMembers();
