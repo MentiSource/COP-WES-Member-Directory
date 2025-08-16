@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: #007acc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+input[type="text"] {
+  margin-top: 10px;
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.member-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 300px;
+}
+
+.member-card h2 {
+  margin-top: 0;
+  color: #007acc;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #eee;
+}
+
+.member-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
