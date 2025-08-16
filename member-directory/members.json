@@ -15,6 +15,16 @@
     "setting": "Urban Hospitals",
     "expertise": "Virology, Public Health",
     "email": "kenji.tanaka@example.com",
-    "photo": ""
+    "photo": "images/amina.jpg"
+  },
+
+  {
+    "name": "Dr. Ade Yusuf",
+    "region": "West Africa",
+    "pathogen": "Malaria",
+    "setting": "Rural Clinics",
+    "expertise": "Epidemiology, Field Research",
+    "email": "amina.yusuf@example.com",
+    "photo": "images/amina.jpg"
   }
 ]
