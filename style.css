@@ -112,8 +112,7 @@ select {
 }
 
 .member-card {
-  display: flex;              
-  align-items: flex-start;    
+  display: block;              /* let text flow under image naturally */
   width: 500px;               
   padding: 12px;
   margin: 10px;
@@ -122,6 +121,7 @@ select {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   background: #fff;
   transition: transform 0.2s ease;
+  overflow: hidden;
 }
 
 .member-card img {
@@ -129,14 +129,12 @@ select {
   height: 120px;
   object-fit: cover;   
   border-radius: 8px;
-  margin-right: 15px; 
+  margin: 0 15px 10px 0;
+  float: left;         /* allows text to wrap under */
 }
 
 .member-info {
-  flex: 1;                
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: block;       /* ensures natural wrapping */
 }
 
 .member-card h2 {
@@ -150,7 +148,7 @@ select {
 
 .member-info p {
   margin: 2px 0;          
-  line-height: 1.3;       
+  line-height: 1.4;       
   font-size: 14px;
 }
 
@@ -162,6 +160,7 @@ select {
 /* RESPONSIVE CARDS */
 @media (max-width: 768px) {
   .member-card {
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -174,9 +173,12 @@ select {
     width: 100%;
     max-width: 300px;
     height: auto;
+    float: none; /* disable float on mobile */
   }
 
   .member-info {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 }
