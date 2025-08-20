@@ -120,3 +120,29 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest("#suggestions") && e.target !== searchBar) suggestions.innerHTML = "";
 });
 
+
+ function checkPassword() {
+      const password = document.getElementById("password").value;
+      const correctPassword = "mySecret123"; // 🔑 change this password
+      if (password === correctPassword) {
+        localStorage.setItem("authenticated", "true");
+        window.location.href = "home.html";
+      } else {
+        document.getElementById("error").innerText = "❌ Incorrect password. Try again.";
+      }
+    }
+
+// function checkPassword() {
+//   const password = document.getElementById("password").value;
+//   const error = document.getElementById("error");
+
+//   // set your own password here
+//   const correctPassword = "mySecret123";  
+
+//   if (password === correctPassword) {
+//     window.location.href = "home.html"; // redirect to homepage
+//   } else {
+//     error.textContent = "Incorrect password. Please try again.";
+//   }
+// }
+

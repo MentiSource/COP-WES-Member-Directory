@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Directory</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <style>
+    button.logout-btn {
+      padding: 10px 20px;
+      margin: 20px auto;
+      display: block;
+      background: #054a87;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button.logout-btn:hover {
+      background: #03345f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Protected content wrapper -->
+  <div id="content" style="display:none;">
+
+    <header>
+      <div class="header-container">
+        <img src="images/ipsn-logo.png" alt="COP WES Logo" class="logo">
+        <div class="header-text">
+          <h1>IPSN COP WES Member Directory</h1>
+          <p>Find collaborators by region, pathogen focus, or setting</p>
+        </div>
+      </div>
+      <input type="text" id="searchBar" placeholder="Search members...">
+      <ul id="suggestions"></ul>
+    </header>
+
+    <div class="controls">
+      <select id="homeFilter" onchange="goHome(this)">
+        <option value="">Menu</option>
+        <option value="home">Home</option>
+      </select>
+      <select id="regionFilter">
+        <option value="">All Regions</option>
+      </select>
+      <select id="pathogenFilter">
+        <option value="">All Pathogens</option>
+      </select>
+      <select id="settingFilter">
+        <option value="">All Settings</option>
+      </select>
+      <select id="sortBy">
+        <option value="name">Sort by Name</option>
+        <option value="region">Sort by Region</option>
+      </select>
+    </div>
+
+    <main id="memberList"></main>
+
+    <footer>
+      <p>Promoting visibility, connection, and knowledge exchange</p>
+      <p>© 2025 COP-WES Member Directory | Built with ❤️ by MentiSource</p>
+    </footer>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+  </div>
+
+  <script>
+    // redirect menu
+    function goHome(select) {
+      if (select.value === "home") {
+        window.location.href = "index.html"; 
+      }
+    }
+
+    // check if user is logged in
+    if (localStorage.getItem("authenticated") === "true") {
+      document.getElementById("content").style.display = "block";
+    } else {
+      window.location.href = "index.html";
+    }
+
+    // logout function
+    function logout() {
+      localStorage.removeItem("authenticated");
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Directory</title>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <!-- <link rel="stylesheet" href="style.css?v=2">
+
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="images/ipsn-logo.png" alt="COP WES Logo" class="logo">
+      <div class="header-text">
+        <h1>IPSN COP WES Member Directory</h1>
+       <p>Find collaborators by region, pathogen focus, or setting</p>
+    </div>
+  </div>
+    <input type="text" id="searchBar" placeholder="Search members...">
+    <ul id="suggestions"></ul>
+  </header>
+
+  <div class="controls">
+    <!-- <button onclick="window.location.href='index.html'" class="home-btn">Home</button> -->
+    <!-- <select id="homeFilter" onchange="goHome(this)">
+    <option value="">Menu</option>
+    <option value="home">Home</option>
+  </select>
+    <select id="regionFilter">
+      <option value="">All Regions</option>
+    </select>
+    <select id="pathogenFilter">
+      <option value="">All Pathogens</option>
+    </select>
+    <select id="settingFilter">
+      <option value="">All Settings</option>
+    </select>
+    <select id="sortBy">
+      <option value="name">Sort by Name</option>
+      <option value="region">Sort by Region</option>
+    </select>
+  </div>
+
+  <script>
+  function goHome(select) {
+    if (select.value === "home") {
+      window.location.href = "index.html"; 
+    }
+  }
+</script>
+
+
+  <!-- only one memberList -->
+  <!-- <main id="memberList"></main>
+
+  <footer>
+    <p>Promoting visibility, connection, and knowledge exchange</p>
+     <p>© 2025 COP-WES Member Directory | Built with ❤️ by MentiSource</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>  -->
