@@ -45,7 +45,6 @@ function displayMembers(list) {
         <p><strong>Setting:</strong> ${member.setting || ''}</p>
         <p><strong>Expertise:</strong> ${member.expertise || ''}</p>
         <p><strong>Email:</strong> ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}</p>
-        
       </div>
     `;
     memberList.appendChild(card);
