@@ -3,59 +3,77 @@
   {"name": "Dr. Joy Aka",
     "region": "East Asia",
     "pathogen": "Influenza",
-    "setting": "Urban Hospitals",
+    "setting of work": "Urban Hospitals",
     "expertise": "Virology, Public Health",
     "email": "joy.aka@example.com",
-    "photo": "images/joy.jpg"
+    "photo": "images/joy.jpg",
+    "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
 },
 
   {
     "name": "Prof. Kenji Tanaka",
     "region": "East Asia",
     "pathogen": "Influenza",
-    "setting": "Urban Hospitals",
+    "setting of work": "Urban Hospitals",
     "expertise": "Virology, Public Health",
     "email": "kenji.tanaka@example.com",
-    "photo": "images/kenji.png"
+    "photo": "images/kenji.png",
+    "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
   },
 
   {
     "name": "Dr. Ade Yusuf",
     "region": "West Africa",
     "pathogen": "Malaria",
-    "setting": "Rural Clinics",
+    "setting of work": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
     "email": "ade.yusuf@example.com",
-    "photo": "images/ade.jpg"
+    "photo": "images/ade.jpg",
+     "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
   },
 
    {
     "name": "Zuba YusFranchuf",
     "region": "West Africa",
     "pathogen": "Malaria",
-    "setting": "Rural Clinics",
+    "setting of work": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
     "email": "zuba.yusuf@example.com",
-    "photo": "images/zuba.jpg"
+    "photo": "images/zuba.jpg",
+    "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
   },
 
    {
     "name": "Dr. Sean Ywell",
     "region": "West Africa",
     "pathogen": "Malaria",
-    "setting": "Rural Clinics",
+    "setting of work": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
     "email": "sean.yusuf@example.com",
-    "photo": "images/sean.png"
+    "photo": "images/sean.png",
+    "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
   },
 
    {
     "name": "Ade Dan",
     "region": "West Africa",
     "pathogen": "Malaria",
-    "setting": "Rural Clinics",
+    "setting of work": "Rural Clinics",
     "expertise": "Epidemiology, Field Research",
     "email": "dan.ade@example.com",
-    "photo": "images/dan.jpg"
+    "photo": "images/dan.jpg",
+    "Interests":"Vaccine Development, Public Health Policy",
+    "Language ": "english",
+    "Country (work)":"Japan"
   }
 ]
