@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Member Directory</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <style>
     button.logout-btn {
       padding: 10px 20px;
@@ -20,6 +20,55 @@
     }
     button.logout-btn:hover {
       background: #03345f;
+    }
+
+    /* --- Member Card Styles --- */
+    .member-card {
+      display: flex;
+      align-items: flex-start;
+      border: 1px solid #054a87;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 700px;
+      background: white;
+      gap: 15px;
+    }
+
+    .member-photo {
+      width: 120px;
+      height: auto;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+
+    .member-info {
+      flex: 1;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .member-info p {
+      margin: 3px 0;
+    }
+
+    /* --- Responsive Layout for Mobile --- */
+    @media (max-width: 600px) {
+      .member-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+
+      .member-photo {
+        width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .member-info {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -42,7 +91,6 @@
 
     <div class="controls">
       <select id="homeFilter" onchange="goHome(this)">
-        <!-- <option value="">Menu</option> -->
         <option value="">Home</option>
       </select>
       <select id="regionFilter">
@@ -60,7 +108,24 @@
       </select>
     </div>
 
-    <main id="memberList"></main>
+    <main id="memberList">
+      <!-- Example Card -->
+      <div class="member-card">
+        <img src="images/member1.jpg" alt="Ade Dan" class="member-photo">
+        <div class="member-info">
+          <h3>Ade Dan</h3>
+          <p><strong>Region:</strong> West Africa</p>
+          <p><strong>Pathogen:</strong> Malaria</p>
+          <p><strong>Setting:</strong> Rural Clinics</p>
+          <p><strong>Expertise:</strong> Epidemiology, Field Research</p>
+          <p><strong>Language:</strong> English, French</p>
+          <p><strong>Interest:</strong> Public Health, Data Analysis</p>
+          <p><strong>Country (Work):</strong> Nigeria</p>
+          <p><strong>Country (Home):</strong> Ghana</p>
+          <p><strong>Email:</strong> <a href="mailto:dan.ade@example.com">dan.ade@example.com</a></p>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <p>Promoting visibility, connection, and knowledge exchange</p>
@@ -97,69 +162,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Member Directory</title>
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-  <!-- <link rel="stylesheet" href="style.css?v=2">
-
-</head>
-<body>
-  <header>
-    <div class="header-container">
-      <img src="images/ipsn-logo.png" alt="COP WES Logo" class="logo">
-      <div class="header-text">
-        <h1>IPSN COP WES Member Directory</h1>
-       <p>Find collaborators by region, pathogen focus, or setting</p>
-    </div>
-  </div>
-    <input type="text" id="searchBar" placeholder="Search members...">
-    <ul id="suggestions"></ul>
-  </header>
-
-  <div class="controls">
-    <!-- <button onclick="window.location.href='index.html'" class="home-btn">Home</button> -->
-    <!-- <select id="homeFilter" onchange="goHome(this)">
-    <option value="">Menu</option>
-    <option value="home">Home</option>
-  </select>
-    <select id="regionFilter">
-      <option value="">All Regions</option>
-    </select>
-    <select id="pathogenFilter">
-      <option value="">All Pathogens</option>
-    </select>
-    <select id="settingFilter">
-      <option value="">All Settings</option>
-    </select>
-    <select id="sortBy">
-      <option value="name">Sort by Name</option>
-      <option value="region">Sort by Region</option>
-    </select>
-  </div>
-
-  <script>
-  function goHome(select) {
-    if (select.value === "home") {
-      window.location.href = "index.html"; 
-    }
-  }
-</script>
-
-
-  <!-- only one memberList -->
-  <!-- <main id="memberList"></main>
-
-  <footer>
-    <p>Promoting visibility, connection, and knowledge exchange</p>
-     <p>© 2025 COP-WES Member Directory | Built with ❤️ by MentiSource</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>  -->

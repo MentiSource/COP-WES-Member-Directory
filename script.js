@@ -44,6 +44,10 @@ function displayMembers(list) {
         <p><strong>Pathogen:</strong> ${member.pathogen || ''}</p>
         <p><strong>Setting:</strong> ${member.setting || ''}</p>
         <p><strong>Expertise:</strong> ${member.expertise || ''}</p>
+        <p><strong>Language:</strong> ${member.language || ''}</p>
+        <p><strong>Interest:</strong> ${member.interest || ''}</p>
+        <p><strong>Country (Work):</strong> ${member.countryWork || ''}</p>
+        <p><strong>Country (Home):</strong> ${member.countryHome || ''}</p>
         <p><strong>Email:</strong> ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}</p>
       </div>
     `;
@@ -89,7 +93,11 @@ function recompute() {
       (m.region || "").toLowerCase().includes(q) ||
       (m.pathogen || "").toLowerCase().includes(q) ||
       (m.setting || "").toLowerCase().includes(q) ||
-      (m.expertise || "").toLowerCase().includes(q);
+      (m.expertise || "").toLowerCase().includes(q) ||
+      (m.language || "").toLowerCase().includes(q) ||
+      (m.interest || "").toLowerCase().includes(q) ||
+      (m.countryWork || "").toLowerCase().includes(q) ||
+      (m.countryHome || "").toLowerCase().includes(q);
 
     const regionOK   = !r || (m.region === r);
     const pathogenOK = !p || (m.pathogen === p);
@@ -120,29 +128,13 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest("#suggestions") && e.target !== searchBar) suggestions.innerHTML = "";
 });
 
-
- function checkPassword() {
-      const password = document.getElementById("password").value;
-      const correctPassword = "mySecret123"; // 🔑 change this password
-      if (password === correctPassword) {
-        localStorage.setItem("authenticated", "true");
-        window.location.href = "home.html";
-      } else {
-        document.getElementById("error").innerText = "❌ Incorrect password. Try again.";
-      }
-    }
-
-// function checkPassword() {
-//   const password = document.getElementById("password").value;
-//   const error = document.getElementById("error");
-
-//   // set your own password here
-//   const correctPassword = "mySecret123";  
-
-//   if (password === correctPassword) {
-//     window.location.href = "home.html"; // redirect to homepage
-//   } else {
-//     error.textContent = "Incorrect password. Please try again.";
-//   }
-// }
-
+function checkPassword() {
+  const password = document.getElementById("password").value;
+  const correctPassword = "mySecret123"; // 🔑 change this password
+  if (password === correctPassword) {
+    localStorage.setItem("authenticated", "true");
+    window.location.href = "home.html";
+  } else {
+    document.getElementById("error").innerText = "❌ Incorrect password. Try again.";
+  }
+}
