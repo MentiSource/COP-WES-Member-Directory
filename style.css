@@ -7,16 +7,14 @@ body {
 
 /* HEADER */
 header {
-
   margin: 0;
   padding: 0;
   background: none;
-  /* background-color: #054a87 !important;
+  background-color: #054a87 !important;
   color: white;
-  padding: 20px;
-  text-align: center; */
+  /* padding: 20px; */
+  text-align: center;
 }
-
 
 .header h1,
 .header p {
@@ -32,7 +30,7 @@ header {
   position: relative;
 }
 
-.header-top {
+/* .header-top {
 width: 100%;           
   display: block; 
   margin-bottom: 15px;
@@ -49,7 +47,7 @@ header img {
   margin: 0;            
   padding: 0;          
   border: none;         
-}
+} */
 
 .logo {
   height: 120px;  
@@ -92,6 +90,7 @@ input[type="text"] {
   padding: 10px;
   margin-top: 10px;
   font-size: 16px;
+  text-align: center;
 }
 
 #suggestions {
@@ -154,7 +153,7 @@ select {
 }
 
 .member-card {
-  display: block;              /* let text flow under image naturally */
+  display: block;              
   width: 500px;               
   padding: 12px;
   margin: 10px;
