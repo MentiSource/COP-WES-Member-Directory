@@ -51,6 +51,13 @@ header img {
   border: none;         
 }
 
+.logo {
+  height: 120px;  
+  width: auto;   
+  margin-right: 20px; 
+  vertical-align: middle; 
+}
+
 .header-bottom {
   width: 60%;       
   margin: auto;      
