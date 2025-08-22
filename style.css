@@ -7,15 +7,19 @@ body {
 
 /* HEADER */
 header {
-  margin: 0;
-  padding: 0;
+
   background: none;
   background-color: #054a87 !important;
   color: white;
-  /* padding: 20px; */
-  text-align: center;
+  padding: 20px;
 }
 
+.header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 16px;
+}
 .header h1,
 .header p {
   color: #ffffff;
@@ -50,13 +54,13 @@ header img {
 } */
 
 .logo {
-  height: 120px;  
+  height: 70px;  
   width: auto;   
   margin-right: 20px; 
-  vertical-align: middle; 
+  justify-self: start;
 }
 
-.header-bottom {
+/* .header-bottom {
   width: 60%;       
   margin: auto;      
   display: flex;
@@ -69,8 +73,14 @@ header img {
 .header-bottom .header-text h1,
 .header-bottom .header-text p {
   color: #ffffff;
+} */
+
+/* center header text */
+.header-text {
+  text-align: center;
 }
 
+/* .header-text p { margin-top: 6px; } */
 
 .header-text {
   text-align: center;
@@ -85,15 +95,34 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-#searchBar {
+/* #searchBar {
   width: 60%;
   padding: 10px;
   margin-top: 10px;
   font-size: 16px;
   text-align: center;
+} */
+
+.search-wrap {
+  margin-top: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children */
 }
 
-#suggestions {
+#searchBar {
+  width: 60%;
+  max-width: 600px;
+  min-width: 260px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;        
+}
+/* #suggestions {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -102,7 +131,7 @@ input[type="text"] {
   border: 1px solid #ccc;
   position: absolute;
   z-index: 100;
-}
+} */
 
 #suggestions li {
   padding: 8px;
@@ -111,6 +140,28 @@ input[type="text"] {
 
 #suggestions li:hover {
   background: #ddd;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  background: #f4f4f4;
+  width: 60%;
+  max-width: 600px;
+  min-width: 260px;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  z-index: 100;
+}
+
+/* responsive tweak */
+@media (max-width: 768px) {
+  .header-grid { grid-template-columns: auto 1fr; }
+  #searchBar, #suggestions { width: 90%; }
 }
 
 /* CONTROLS */
