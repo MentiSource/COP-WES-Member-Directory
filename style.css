@@ -7,11 +7,16 @@ body {
 
 /* HEADER */
 header {
-  background-color: #054a87 !important;
+
+  margin: 0;
+  padding: 0;
+  background: none;
+  /* background-color: #054a87 !important;
   color: white;
   padding: 20px;
-  text-align: center;
+  text-align: center; */
 }
+
 
 .header h1,
 .header p {
@@ -27,17 +32,23 @@ header {
   position: relative;
 }
 
-
 .header-top {
 width: 100%;           
   display: block; 
   margin-bottom: 15px;
-
 }
 
 .ipsn-banner {
   max-width: 100%;
   height: auto;
+}
+header img {
+  display: block;       
+  width: 100%;          
+  height: auto;         
+  margin: 0;            
+  padding: 0;          
+  border: none;         
 }
 
 .header-bottom {
