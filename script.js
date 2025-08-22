@@ -130,7 +130,7 @@ document.addEventListener("click", (e) => {
 
 function checkPassword() {
   const password = document.getElementById("password").value;
-  const correctPassword = "mySecret123"; // 🔑 change this password
+  const correctPassword = "copwes1"; // 🔑 change this password
   if (password === correctPassword) {
     localStorage.setItem("authenticated", "true");
     window.location.href = "home.html";
