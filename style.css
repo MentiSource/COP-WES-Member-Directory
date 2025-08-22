@@ -27,7 +27,34 @@ header {
   position: relative;
 }
 
-/* removed .logo rule completely */
+
+.header-top {
+width: 100%;           
+  display: block; 
+  margin-bottom: 15px;
+
+}
+
+.ipsn-banner {
+  max-width: 100%;
+  height: auto;
+}
+
+.header-bottom {
+  width: 60%;       
+  margin: auto;      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+}
+
+.header-bottom .header-text h1,
+.header-bottom .header-text p {
+  color: #ffffff;
+}
+
 
 .header-text {
   text-align: center;
@@ -202,22 +229,3 @@ footer a:hover {
   text-decoration: underline;  
 }
 
-/* HEADER IMAGE + TEXT */
-.header-top {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.ipsn-banner {
-  max-width: 100%;
-  height: auto;
-}
-
-.header-bottom {
-  text-align: center;
-}
-
-.header-bottom .header-text h1,
-.header-bottom .header-text p {
-  color: #ffffff;
-}
