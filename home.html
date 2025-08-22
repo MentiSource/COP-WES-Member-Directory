@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Member Directory</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -12,21 +12,15 @@
   <div id="content" style="display:none;">
 
     <header>
-      <!-- Upper Part -->
-      <div class="header-top">
-        <img src="images/ipsn-logo.png" alt="IPSN Logo">
-      </div>
-
-      <!-- Lower Part -->
-      <div class="header-bottom">
-        <h1>IPSN COP WES Member Directory</h1>
-        <p>Find collaborators by region, pathogen focus, or setting</p>
-        <div class="search-box">
-          <input type="text" id="searchBar" placeholder="Search members...">
-          <button>Search</button>
+      <div class="header-container">
+        <!-- Removed ipsn-logo image -->
+        <div class="header-text">
+          <h1>IPSN COP WES Member Directory</h1>
+          <p>Find collaborators by region, pathogen focus, or setting</p>
         </div>
-        <ul id="suggestions"></ul>
       </div>
+      <input type="text" id="searchBar" placeholder="Search members...">
+      <ul id="suggestions"></ul>
     </header>
 
     <div class="controls">
@@ -93,3 +87,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
