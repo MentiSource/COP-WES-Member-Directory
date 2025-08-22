@@ -92,6 +92,7 @@ select {
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .home-btn:hover {
@@ -199,4 +200,24 @@ footer p:last-child {
 
 footer a:hover {
   text-decoration: underline;  
+}
+
+/* HEADER IMAGE + TEXT */
+.header-top {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.ipsn-banner {
+  max-width: 100%;
+  height: auto;
+}
+
+.header-bottom {
+  text-align: center;
+}
+
+.header-bottom .header-text h1,
+.header-bottom .header-text p {
+  color: #ffffff;
 }

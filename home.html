@@ -12,8 +12,11 @@
   <div id="content" style="display:none;">
 
     <header>
-      <div class="header-container">
-        <!-- Removed ipsn-logo image -->
+      <div class="header-top">
+        <img src="images/ipsn.png" alt="IPSN Logo" class="ipsn-banner">
+      </div>
+
+      <div class="header-bottom">
         <div class="header-text">
           <h1>IPSN COP WES Member Directory</h1>
           <p>Find collaborators by region, pathogen focus, or setting</p>
@@ -24,9 +27,8 @@
     </header>
 
     <div class="controls">
-      <select id="homeFilter" onchange="goHome(this)">
-        <option value="">Home</option>
-      </select>
+       <button id="homeBtn" class="home-btn">Home</button>
+       
       <select id="regionFilter">
         <option value="">All Regions</option>
       </select>
