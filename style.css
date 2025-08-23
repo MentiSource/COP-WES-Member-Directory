@@ -32,7 +32,7 @@ header {
 }
 
 .header h1 {
-  margin-bottom: 3px;  
+  margin-bottom: 1px;  
 }
 
 
@@ -221,25 +221,20 @@ select {
     grid-template-columns: 1fr; 
   }
   .member-card {
-    display: flex;
+   
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 100%; 
-    max-width: 350px;
+    max-width: 350px; */
 
   }
-
-  /* .member-card {
-  display: block; go back to block for float behavior
-  padding: 16px;     
-  border: 2px solid #054a87;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  background: #fff;
-  transition: transform 0.2s ease;
-  overflow: hidden;
-} */
 
 /* Photo floats left */
 .member-card img {
@@ -247,14 +242,16 @@ select {
   height: 120px;
   object-fit: cover;   
   border-radius: 8px;
-  margin: 0 15px 10px 0;
-  float: left;         /* key part */
+  margin: 0 15px 10px 0;       
 }
 
 /* Text wraps naturally around float */
 .member-info {
-  display: block;       
-  overflow: hidden;     /* ensures text clears nicely below float */
+  flex: 1;       
+  overflow: visible;
+
+  /* display: block;       
+  overflow: hidden;      */
 }
 
 }
