@@ -1,15 +1,17 @@
 [
   
-  {"name": "Dr. Joy Aka",
-    "region": "East Asia",
-    "pathogen": "Influenza",
-    "setting of work": "Urban Hospitals",
-    "expertise": "Virology, Public Health",
-    "email": "joy.aka@example.com",
-    "photo": "images/joy.jpg",
-    "Interests":"Vaccine Development, Public Health Policy",
-    "Language ": "english",
-    "Country (work)":"Japan"
+  {
+  "name": "Dr. Joy Aka",
+  "region": "East Asia",
+  "pathogen": "Influenza",
+  "setting": "Urban Hospitals",
+  "expertise": "Virology, Public Health",
+  "email": "joy.aka@example.com",
+  "photo": "images/joy.jpg",
+  "interest": "Vaccine Development, Public Health Policy",
+  "language": "English",
+  "country_work": "Japan",
+  "country_home": "Japan"
 },
 
   {
