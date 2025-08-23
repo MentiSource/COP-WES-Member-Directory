@@ -138,7 +138,7 @@ select {
 /* MEMBER LIST + CARDS */
 
 .member-card {
-  display: flex;              
+  display: block;              
   flex-direction: row;         
   align-items: flex-start;     
   width: 100%;         
@@ -165,7 +165,7 @@ select {
 
 
 /* Photo */
-.member-card img {
+.member-photo {
   width: 120px;        
   height: 120px;
   object-fit: cover;   
@@ -218,8 +218,8 @@ select {
 
   }
 
-  .member-card {
-  display: block; /* go back to block for float behavior */
+  /* .member-card {
+  display: block; go back to block for float behavior
   padding: 16px;     
   border: 2px solid #054a87;
   border-radius: 8px;
@@ -227,7 +227,7 @@ select {
   background: #fff;
   transition: transform 0.2s ease;
   overflow: hidden;
-}
+} */
 
 /* Photo floats left */
 .member-card img {
