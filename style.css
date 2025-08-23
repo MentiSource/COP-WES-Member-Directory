@@ -19,10 +19,22 @@ header {
   align-items: center;
   column-gap: 16px;
 }
+/* .header h1,
+.header p {
+  color: #ffffff; */
+/* } */
+
 .header h1,
 .header p {
   color: #ffffff;
+  margin: 0;           
+  line-height: 1.2;    
 }
+
+.header h1 {
+  margin-bottom: 3px;  
+}
+
 
 .header-container {
   display: flex;
