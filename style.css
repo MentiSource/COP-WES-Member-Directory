@@ -149,8 +149,17 @@ select {
   overflow: hidden;
 }
 
-
 #memberList {
+  display: grid;
+  grid-template-columns: repeat(3, auto-fit, minmax(280px, 1fr));
+  grid-template-rows: repeat(3, auto);   
+  gap: 12px; 
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* #memberList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);   
@@ -158,7 +167,7 @@ select {
   margin: 20px;
   padding: 10px;
   box-sizing: border-box; 
-} 
+}  */
 
 .member-card img {
   width: 120px;        
