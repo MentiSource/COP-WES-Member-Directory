@@ -149,17 +149,19 @@ select {
   background: #fff;
   transition: transform 0.2s ease;
   overflow: hidden;
+  box-sizing: border-box; 
 }
 
 /* Grid container */
 #memberList {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
-  gap: 16px; 
+  gap: 7px; 
   margin: 20px;
   padding: 10px;
   box-sizing: border-box;
 }
+
 
 /* Photo */
 .member-card img {
