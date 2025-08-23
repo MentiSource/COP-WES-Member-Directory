@@ -27,10 +27,8 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 300px; 
-  /* margin-bottom: 20px;
-  position: relative; */
+  justify-content: space-between;
+  /* gap: 300px;  */
 }
 
 .logo {
@@ -42,6 +40,7 @@ header {
 }
 
 .header-text {
+  flex: 1;
   text-align: center;
 }
 
