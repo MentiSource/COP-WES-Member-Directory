@@ -138,6 +138,89 @@ select {
 /* MEMBER LIST + CARDS */
 
 .member-card {
+  display: flex;               /* ✅ flex instead of block */
+  flex-direction: row;         /* image left, text right */
+  align-items: flex-start;     
+  width: 100%;         
+  padding: 16px;     
+  border: 2px solid #054a87;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+/* Grid container */
+#memberList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ exactly 3 columns */
+  gap: 16px; 
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Photo */
+.member-card img {
+  width: 120px;        
+  height: 120px;
+  object-fit: cover;   
+  border-radius: 8px;
+  margin-right: 15px;   /* ✅ spacing without float */
+  flex-shrink: 0;       /* don’t shrink the image */
+}
+
+/* Text info */
+.member-info {
+  flex: 1;              /* ✅ takes remaining space */
+}
+
+.member-card h2 {
+  margin-top: 0;
+  color: #007acc;
+}
+
+.member-info h3 {
+  margin: 0 0 5px 0;      
+}
+
+.member-info p {
+  margin: 2px 0;          
+  line-height: 1.4;       
+  font-size: 14px;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ✅ Responsive grid */
+/* @media (max-width: 900px) {
+  #memberList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .member-card {
+    flex-direction: column;   /* stack image on top */
+    /* align-items: center;
+    text-align: center;
+  } */
+
+  /* .member-card img {
+    margin: 0 0 10px 0;  
+  }
+
+  #memberList {
+    grid-template-columns: 1fr; 
+  }
+}  */
+
+
+/* old one */
+/* .member-card {
   display: block;
   width: 100%;         
   padding: 16px;     
@@ -158,16 +241,6 @@ select {
   padding: 10px;
   box-sizing: border-box;
 }
-
-/* #memberList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);   
-  gap: 20px; 
-  margin: 20px;
-  padding: 10px;
-  box-sizing: border-box; 
-}  */
 
 .member-card img {
   width: 120px;        
@@ -199,7 +272,7 @@ select {
 
 .member-card:hover {
   transform: translateY(-5px);
-}
+} */
 
 /* RESPONSIVE CARDS */
 @media (max-width: 768px) {
