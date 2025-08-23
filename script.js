@@ -13,6 +13,15 @@ const sortBy          = document.getElementById("sortBy");
 function normalizeMember(raw) {
   return {
     name: raw.name || "",
+    pronouns: raw.pronouns || "",
+    professionalTitle: raw.professionalTitle || raw["Professional Title / Role"] || "",
+    sector: raw.sector || "",
+    primaryRole: raw.primaryRole || raw["primary role"] || "",
+    careerStage: raw.careerStage || raw["Career stage"] || "",
+    organization: raw.organization || raw["Organization / Affiliation"] || "",
+    healthThreat: raw.healthThreat || raw["Health threat (pathogen/threat)"] || "",
+    healthThreatCategory: raw.healthThreatCategory || raw["Health threats (category)"] || "",
+    laboratoryMethods: raw.laboratoryMethods || raw["Laboratory methods"] || "",
     region: raw.region || "",
     pathogen: raw.pathogen || "",
     setting: raw.setting || raw["setting of work"] || "",
@@ -30,16 +39,14 @@ function normalizeMember(raw) {
 fetch("members.json")
   .then(r => r.json())
   .then(data => {
-    // normalize all members
     members = (data || []).map(normalizeMember);
 
-    // populate filter options
     const uniq = arr => [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
     uniq(members.map(m => m.region)).forEach(v => regionFilter.insertAdjacentHTML("beforeend", `<option value="${v}">${v}</option>`));
     uniq(members.map(m => m.pathogen)).forEach(v => pathogenFilter.insertAdjacentHTML("beforeend", `<option value="${v}">${v}</option>`));
     uniq(members.map(m => m.setting)).forEach(v => settingFilter.insertAdjacentHTML("beforeend", `<option value="${v}">${v}</option>`));
 
-    recompute(); // initial render
+    recompute();
   })
   .catch(err => console.error("Error loading members.json:", err));
 
@@ -58,10 +65,19 @@ function displayMembers(list) {
       <img src="${member.photo}" alt="${member.name}" class="member-photo">
       <div class="member-info">
         <h3>${member.name}</h3>
+        <p><strong>Pronouns:</strong> ${member.pronouns}</p>
+        <p><strong>Professional Title / Role:</strong> ${member.professionalTitle}</p>
+        <p><strong>Sector:</strong> ${member.sector}</p>
+        <p><strong>Primary Role:</strong> ${member.primaryRole}</p>
+        <p><strong>Career Stage:</strong> ${member.careerStage}</p>
+        <p><strong>Organization / Affiliation:</strong> ${member.organization}</p>
         <p><strong>Region:</strong> ${member.region}</p>
         <p><strong>Pathogen:</strong> ${member.pathogen}</p>
+        <p><strong>Health Threat:</strong> ${member.healthThreat}</p>
+        <p><strong>Health Threat (Category):</strong> ${member.healthThreatCategory}</p>
         <p><strong>Setting of Work:</strong> ${member.setting}</p>
         <p><strong>Expertise:</strong> ${member.expertise}</p>
+        <p><strong>Laboratory Methods:</strong> ${member.laboratoryMethods}</p>
         <p><strong>Language:</strong> ${member.language}</p>
         <p><strong>Interest:</strong> ${member.interest}</p>
         <p><strong>Country (Work):</strong> ${member.countryWork}</p>
@@ -107,15 +123,7 @@ function recompute() {
   let list = members.filter(m => {
     const inSearch =
       !q ||
-      (m.name || "").toLowerCase().includes(q) ||
-      (m.region || "").toLowerCase().includes(q) ||
-      (m.pathogen || "").toLowerCase().includes(q) ||
-      (m.setting || "").toLowerCase().includes(q) ||
-      (m.expertise || "").toLowerCase().includes(q) ||
-      (m.language || "").toLowerCase().includes(q) ||
-      (m.interest || "").toLowerCase().includes(q) ||
-      (m.countryWork || "").toLowerCase().includes(q) ||
-      (m.countryHome || "").toLowerCase().includes(q);
+      Object.values(m).some(val => (val || "").toString().toLowerCase().includes(q));
 
     const regionOK   = !r || (m.region === r);
     const pathogenOK = !p || (m.pathogen === p);
@@ -124,7 +132,6 @@ function recompute() {
     return inSearch && regionOK && pathogenOK && settingOK;
   });
 
-  // sort (case-insensitive, handles missing fields)
   list.sort((a, b) =>
     ((a[key] || "") + "").toLowerCase()
       .localeCompare(((b[key] || "") + "").toLowerCase(), undefined, { sensitivity: "base", numeric: true })
@@ -141,14 +148,13 @@ pathogenFilter.addEventListener("change", recompute);
 settingFilter.addEventListener("change", recompute);
 sortBy.addEventListener("change", recompute);
 
-// close suggestions when clicking outside
 document.addEventListener("click", (e) => {
   if (!e.target.closest("#suggestions") && e.target !== searchBar) suggestions.innerHTML = "";
 });
 
 function checkPassword() {
   const password = document.getElementById("password").value;
-  const correctPassword = "copwes1"; // 🔑 change this password
+  const correctPassword = "copwes1";
   if (password === correctPassword) {
     localStorage.setItem("authenticated", "true");
     window.location.href = "home.html";
@@ -176,11 +182,29 @@ if (homeBtn) {
 // const settingFilter   = document.getElementById("settingFilter");
 // const sortBy          = document.getElementById("sortBy");
 
+// // ---- Normalize JSON keys ----
+// function normalizeMember(raw) {
+//   return {
+//     name: raw.name || "",
+//     region: raw.region || "",
+//     pathogen: raw.pathogen || "",
+//     setting: raw.setting || raw["setting of work"] || "",
+//     expertise: raw.expertise || "",
+//     email: raw.email || "",
+//     photo: raw.photo || "images/default.jpg",
+//     interest: raw.interest || raw.Interests || "",
+//     language: raw.language || raw["Language "] || "",
+//     countryWork: raw.countryWork || raw["Country (work)"] || "",
+//     countryHome: raw.countryHome || raw["Country (home)"] || ""
+//   };
+// }
+
 // // ---- Load data ----
 // fetch("members.json")
 //   .then(r => r.json())
 //   .then(data => {
-//     members = data || [];
+//     // normalize all members
+//     members = (data || []).map(normalizeMember);
 
 //     // populate filter options
 //     const uniq = arr => [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
@@ -188,7 +212,7 @@ if (homeBtn) {
 //     uniq(members.map(m => m.pathogen)).forEach(v => pathogenFilter.insertAdjacentHTML("beforeend", `<option value="${v}">${v}</option>`));
 //     uniq(members.map(m => m.setting)).forEach(v => settingFilter.insertAdjacentHTML("beforeend", `<option value="${v}">${v}</option>`));
 
-//     recompute();           // initial render (sorted by Name by default)
+//     recompute(); // initial render
 //   })
 //   .catch(err => console.error("Error loading members.json:", err));
 
@@ -204,17 +228,17 @@ if (homeBtn) {
 //     const card = document.createElement("div");
 //     card.className = "member-card";
 //     card.innerHTML = `
-//       <img src="${member.photo || 'images/default.jpg'}" alt="${member.name}" class="member-photo">
+//       <img src="${member.photo}" alt="${member.name}" class="member-photo">
 //       <div class="member-info">
-//         <h3>${member.name || ''}</h3>
-//         <p><strong>Region:</strong> ${member.region || ''}</p>
-//         <p><strong>Pathogen:</strong> ${member.pathogen || ''}</p>
-//         <p><strong>Setting of Work:</strong> ${member.setting || ''}</p>
-//         <p><strong>Expertise:</strong> ${member.expertise || ''}</p>
-//         <p><strong>Language:</strong> ${member.language || ''}</p>
-//         <p><strong>Interest:</strong> ${member.interest || ''}</p>
-//         <p><strong>Country (Work):</strong> ${member.countryWork || ''}</p>
-//         <p><strong>Country (Home):</strong> ${member.countryHome || ''}</p>
+//         <h3>${member.name}</h3>
+//         <p><strong>Region:</strong> ${member.region}</p>
+//         <p><strong>Pathogen:</strong> ${member.pathogen}</p>
+//         <p><strong>Setting of Work:</strong> ${member.setting}</p>
+//         <p><strong>Expertise:</strong> ${member.expertise}</p>
+//         <p><strong>Language:</strong> ${member.language}</p>
+//         <p><strong>Interest:</strong> ${member.interest}</p>
+//         <p><strong>Country (Work):</strong> ${member.countryWork}</p>
+//         <p><strong>Country (Home):</strong> ${member.countryHome}</p>
 //         <p><strong>Email:</strong> ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}</p>
 //       </div>
 //     `;
