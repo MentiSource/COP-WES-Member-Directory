@@ -189,7 +189,8 @@ select {
 /* Text info */
 .member-info {
   flex: 1;   
-  text-align: left;          
+  text-align: left; 
+   display: block;        
 }
 
 .member-card h2 {
@@ -267,21 +268,21 @@ select {
 } */
 
 /* Text wraps naturally around float */
- .member-info {
+ /* .member-info {
     flex: 1;
     overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-  }
-/* .member-info {
-  flex: 1;       
-  overflow: visible; */
+  } */
+.member-info {
+  /* flex: 1;       
+  overflow: visible; */ 
 
   /* old */
-  /* display: block;       
-  overflow: hidden;      */
-/* } */
+  display: block;       
+  /* overflow: hidden;       */
+ }
 
 
 
