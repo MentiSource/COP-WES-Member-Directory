@@ -137,7 +137,7 @@ select {
 
 /* MEMBER LIST + CARDS */
 
-/* .member-card {
+.member-card {
   display: block;
   width: 100%;         
   padding: 16px;     
@@ -153,35 +153,12 @@ select {
 #memberList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);   
-  gap: 12px; 
-  margin: 20px;
-  padding: 10px;
-  box-sizing: border-box; */
-/* } */
-
-#memberList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
   grid-template-rows: repeat(3, 1fr);   
-  gap: 12px;
+  gap: 20px; 
   margin: 20px;
   padding: 10px;
-  box-sizing: border-box;
-  height: 100vh; 
-}
-
-.member-card {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  border: 2px solid #054a87;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  background: #fff;
-  transition: transform 0.2s ease;
-  overflow: hidden;
-}
+  box-sizing: border-box; 
+} 
 
 .member-card img {
   width: 120px;        
